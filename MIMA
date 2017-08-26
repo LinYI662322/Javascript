@@ -1,0 +1,33 @@
+<input type="password" name="password1" placeholder="请输入密码" class="input1" maxlength="18">
+<input  name="password1"  type="text" placeholder="请输入密码" class="input2"  style="display: none;"  maxlength="18"/>
+
+<input type="password" name="password2"  placeholder="请再次输入密码" autocomplete="off" class="input1" maxlength="18">
+<input  name="password2"  type="text" placeholder="请再次输入密码" class="input2" style="display: none;"  maxlength="18"/>
+
+<script>
+$(".showpassword").click(function(){
+        var display1 = $(this).siblings(".input1").css("display");
+        var display2 = $(this).siblings(".input2").css("display");
+        if(display1=='block'){
+                $(this).css({'background':'url(img/eye.png) no-repeat','background-size':'contain'})
+        }else{
+                $(this).css({'background':'url(img/eye1.png) no-repeat','background-size':'contain'})
+        }
+        $(this).siblings("input").toggle();
+})
+
+$(".input1").each(function(){
+        $(this).keyup(function(){
+                var value1 = $(this).val();
+                var value2 = value1;
+                $(this).siblings(".input2").val(value2);
+        })
+})
+$(".input2").each(function(){
+        $(".input2").keyup(function(){
+                var value2 = $(this).val();
+                var value1 = value2;
+                $(this).siblings(".input1").val(value1);
+        })
+})
+</script>
