@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title></title>
+<style type="text/css">
+*{margin:0; padding:0;}
+
+ul,li{
+	list-style: none;
+}
+.tabbox{width:500px; margin:20px auto; position:relative;}
+.tabs{width:500px;height:35px;}
+.tabs li{width:100px; height:30px; line-height:30px;float:left; font-size: 14px; font-weight: 700; text-align: center; background: #ccc; color:#E3F5DE; border-top:5px solid #fff; }
+.content{width:500px; height:100px; }
+.content li{width:500px; height:100px; position:absolute; top:35px; left:0; line-height: 100px; font-size: 48px; text-align: center;  opacity: 0; color:#fff; }
+
+.tabs li.tab01,.content li.con01{background: #5F7165; border-color: #5F7165;}
+.tabs li.tab02,.content li.con02{background: #78A387; border-color: #78A387;}
+.tabs li.tab03,.content li.con03{background: #80B299; border-color: #80B299;}
+.tabs li.tab04,.content li.con04{background: #98BE97; border-color: #98BE97;}
+.tabs li.tab05,.content li.con05{background: #C2CFA3; border-color: #C2CFA3;}
+
+.tabs li:hover{cursor: pointer; font-size: 16px; }
+</style>
+</head>
+<body>
+<div class="tabbox">
+	<div class="tabs">
+		<ul>
+			<li class="tab01" style="border-color:#fff;">TAB1</li>
+			<li class="tab02">TAB2</li>
+			<li class="tab03">TAB3</li>
+			<li class="tab04">TAB4</li>
+			<li class="tab05">TAB5</li>
+		</ul>
+	</div>
+	<div class="content">
+		<ul>
+			<li class="con01" style="opacity: 1">CONTENT01</li>
+			<li class="con02" >CONTENT02</li>
+			<li class="con03">CONTENT03</li>
+			<li class="con04">CONTENT04</li>
+			<li class="con05">CONTENT05</li>
+		</ul>
+	</div>
+</div>
+<script type="text/javascript">
+window.onload = function(){
+	var tab = document.getElementsByClassName('tabs')[0];
+	var content = document.getElementsByClassName('content')[0];
+	var tablis = tab.getElementsByTagName('li');
+	var conlis = content.getElementsByTagName('li');
+	
+	for (var i=0; i<tablis.length; i++){
+		//建立索引
+		tablis[i].id = i; 
+		tablis[i].onclick = function(){
+			for(var j=0; j< tablis.length; j++){
+				tablis[j].style.borderColor='';
+				conlis[j].style.opacity = '0';
+			}
+	
+			this.style.borderColor = '#fff';
+			//content对应的li内容显示
+			conlis[this.id].style.opacity = '1';
+		}
+
+	}
+
+}
+
+</script>
+</body>
+</html>
