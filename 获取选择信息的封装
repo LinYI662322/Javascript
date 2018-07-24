@@ -1,0 +1,12 @@
+function  getxxx //函数名(className){
+    var xxxObj = document.getElementByclassName(className);
+    var checkVal =null;
+    for(i=0 ;i<xxxObj.length;i++){
+        if(xxxObj[i].checkVal){
+            checkVal = xxxObj[i].value;
+        }
+    }
+    return checkVal;
+    
+    
+}
