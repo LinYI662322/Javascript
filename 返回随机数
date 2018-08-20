@@ -1,0 +1,9 @@
+// 返回给定范围内的随机数
+function getRandomArbitrary(min, max) {
+  return Math.random() * (max - min) + min;
+}
+
+// 返回给定范围内的随机整数
+function getRandomInt(min, max) {
+  return Math.floor(Math.random() * (max - min + 1)) + min;
+}
